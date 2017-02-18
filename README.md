@@ -1,5 +1,5 @@
 # Algorithm
-My data structures and algorithm exercise.
+My data structures and algorithm exercise.  
 Build with LLVM 8.0.0 (clang-800.0.42.1) and CMake 3.6.
   
 学习数据结构与算法过程中做的一些练习。
@@ -7,7 +7,7 @@ Build with LLVM 8.0.0 (clang-800.0.42.1) and CMake 3.6.
   
 ## algorithm
 一些数据结构和算法的简单实现。  
-* array: algorithma for array.
+* array: algorithms for array.
 * graph: directed graph and algorithms for graph (bfs, dfs etc.).
 * hash: hash table based on vector and list.
 * heap: algorithms for heap.
@@ -20,7 +20,7 @@ Build with LLVM 8.0.0 (clang-800.0.42.1) and CMake 3.6.
 * sort: algorithms for sorting.
 * stack: stack based on array and stack based on vector.
 * string: algorithms for string.
-* tree: binary_tree and binary search tree.
+* tree: binary tree and binary search tree.
 * vector: bits based vector and vector based on dynamic array.
   
 ## util
