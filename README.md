@@ -1,14 +1,12 @@
 # Algorithm
----
 My data structures and algorithm exercise.
 Build with LLVM 8.0.0 (clang-800.0.42.1) and CMake 3.6.
-
+  
 学习数据结构与算法过程中做的一些练习。
-学习用的主要书籍是 **《数据结构 C++ 语言描述 ——应用模板标准库（STL）(第 2 版)》 **
-
+学习用的主要书籍是 **《数据结构 C++ 语言描述 ——应用模板标准库（STL）(第 2 版)》**
+  
 ## algorithm
----
-一些数据结构和算法的简单实现。
+一些数据结构和算法的简单实现。  
 * array: algorithma for array.
 * graph: directed graph and algorithms for graph (bfs, dfs etc.).
 * hash: hash table based on vector and list.
@@ -24,24 +22,21 @@ Build with LLVM 8.0.0 (clang-800.0.42.1) and CMake 3.6.
 * string: algorithms for string.
 * tree: binary_tree and binary search tree.
 * vector: bits based vector and vector based on dynamic array.
-
+  
 ## util
----
-工具类和方法。
-
+工具类和方法。  
+  
 ## tests
----
-algorithm 中的数据结构和算法的使用示例和测试用例。
-
+algorithm 中的数据结构和算法的使用示例和测试用例。  
+  
 ####附：常用排序算法的时间复杂度和空间复杂度
----
 | 排序算法 | 最差时间复杂度 | 平均时间复杂度 | 空间复杂度 | 稳定度 |
 | :--: | :--: | :--: | :--: | :--: |
 | 冒泡 (bubble) 排序 | O(n^2) | O(n^2) | O(1) | 稳定 |
-| 快速 (quick) 排序 | O(n^2) | O(n*log(n)) | O(n*log(n)) ~ O(n) | 不稳定 |
+| 快速 (quick) 排序 | O(n^2) | O(n\*log(n)) | O(n\*log(n)) ~ O(n) | 不稳定 |
 | 选择 (selection) 排序 | O(n^2) | O(n^2) | O(1) | 不稳定 |
-| 归并 (merge) 排序 | O(n*log(n)) | O(n*log(n)) | O(n) | 稳定 |
+| 归并 (merge) 排序 | O(n\*log(n)) | O(n\*log(n)) | O(n) | 稳定 |
 | 插入 (insertion) 排序 | O(n^2) | O(n^2) | O(1) | 稳定 |
-| 堆 (heap) 排序 | O(n*log(n)) | O(n*log(n)) | O(1) | 不稳定 |
+| 堆 (heap) 排序 | O(n\*log(n)) | O(n\*log(n)) | O(1) | 不稳定 |
 | 基数 (radix) 排序 | O(dn) | d | O(n) | 稳定 |
 | 希尔 (shell) 排序 | O(n^2) | O(n^1.3) | O(1) | 不稳定 |
