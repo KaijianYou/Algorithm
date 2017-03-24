@@ -67,25 +67,25 @@ namespace myalgorithm {
 
         cout << endl;
 
-        Vector<int> vec;
+        Vector<int> v;
         for (int i = 0; i < 10; ++i) {
-            vec.push_back(i);
+            v.push_back(i);
         }
 
-        vec.insert(0, 10);
-        vec.insert(11, 20);
-        vec.insert(5, 3);
+        v.insert(0, 10);
+        v.insert(11, 20);
+        v.insert(5, 3);
 
-        cout << "vec elements:\n\t";
-        printContainer(vec.begin(), vec.end());
+        cout << "v elements:\n\t";
+        printContainer(v.begin(), v.end());
         cout << endl << endl;
 
-        vec.erase(12);
-        vec.erase(0);
-        vec.erase(4);
+        v.erase(12);
+        v.erase(0);
+        v.erase(4);
 
-        cout << "vec elements:\n\t";
-        printContainer(vec.begin(), vec.end());
+        cout << "v elements:\n\t";
+        printContainer(v.begin(), v.end());
         cout << endl;
     }
 }

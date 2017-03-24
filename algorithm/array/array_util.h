@@ -10,10 +10,10 @@ namespace myalgorithm {
     {
         int uniqueCount = 0;
         for (int i = 0; i < size; ++i) {
-            T target = arr[i];
+            T key = arr[i];
             int index;
-            if ((index = sequentialSearch(arr, 0, i, target)) == i) {
-                if ((index = sequentialSearch(arr, i + 1, size, target)) == size) {
+            if ((index = sequentialSearch(arr, 0, i, key)) == i) {
+                if ((index = sequentialSearch(arr, i + 1, size, key)) == size) {
                     uniqueCount++;
                 }
             }

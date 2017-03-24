@@ -19,11 +19,11 @@ namespace myalgorithm {
     using std::list;
 
     template <typename T>
-    void fillVectorWithRandomInt(vector<T> &vec, const int lowerBound, const int upperBound)
+    void fillVectorWithRandomInt(vector<T> &v, const int lowerBound, const int upperBound)
     {
         static RandomNumber rnd;
-        for (size_t i = 0; i < vec.size(); ++i) {
-            vec[i] = rnd.randomInt(lowerBound, upperBound);
+        for (size_t i = 0; i < v.size(); ++i) {
+            v[i] = rnd.randomInt(lowerBound, upperBound);
         }
     }
 
@@ -91,43 +91,43 @@ namespace myalgorithm {
     // 删除向量中的冗余元素
     // 把向量中冗余的元素通过交换放到向量尾部，最后通过调整向量大小来删除冗余元素
     template <typename T>
-    void removeVectorDupElements1(vector<T> &vec)
+    void removeVectorDupElements1(vector<T> &v)
     {
-        int currSize = static_cast<int>(vec.size());
+        int currSize = static_cast<int>(v.size());
         for (int i = 0; i < currSize - 1; ++i) {
             for (int j = i + 1; j < currSize; ++j) {
-                if (vec[i] == vec[j]) {
-                    while ((vec[j] == vec[currSize - 1]) &&
+                if (v[i] == v[j]) {
+                    while ((v[j] == v[currSize - 1]) &&
                            (j != currSize - 1)) {
                         --currSize;
                     }
-                    int temp = vec[j];
-                    vec[j] = vec[currSize - 1];
-                    vec[currSize - 1] = temp;
+                    int temp = v[j];
+                    v[j] = v[currSize - 1];
+                    v[currSize - 1] = temp;
                     --currSize;
                 }
             }
         }
 
-        vec.resize(currSize);
+        v.resize(currSize);
     }
 
     // 删除向量中的冗余元素（效率非常低）
     template <typename T>
-    void removeVectorDupElements2(vector<T> &vec)
+    void removeVectorDupElements2(vector<T> &v)
     {
         // 从索引 1 处开始遍历向量，将当前索引处的元素与它之前的所有元素一一比较，如果发现
         // 相同元素，则从当前索引开始，后面的所有元素向前移动一个位置，然后将向量大小减一
-        for (int i = 1; i < vec.size(); ++i) {
+        for (int i = 1; i < v.size(); ++i) {
             int j = i;
-            while (j > 0 && vec[i] != vec[j - 1]) {
+            while (j > 0 && v[i] != v[j - 1]) {
                 --j;
             }
             if (j != 0) {
-                for (int k = i; k < vec.size() - 1; ++k) {
-                    vec[k] = vec[k + 1];
+                for (int k = i; k < v.size() - 1; ++k) {
+                    v[k] = v[k + 1];
                 }
-                vec.resize(vec.size() - 1);
+                v.resize(v.size() - 1);
                 --i;
             }
         }
@@ -135,47 +135,47 @@ namespace myalgorithm {
 
     // 删除向量中的冗余元素
     template <typename T>
-    void removeVectorDupElements3(vector<T> &vec)
+    void removeVectorDupElements3(vector<T> &v)
     {
         vector<T> tempVec;
-        tempVec.push_back(vec[0]);
+        tempVec.push_back(v[0]);
 
         // 从索引 1 处开始遍历原向量，将当前索引处的元素与它之前的所有元素一一比较，如果没有发现
         // 相同元素，则将当前元素添加到临时向量中
-        for (int i = 1; i < vec.size(); ++i) {
+        for (int i = 1; i < v.size(); ++i) {
             int j = i;
-            while (j > 0 && vec[i] != vec[j - 1]) {
+            while (j > 0 && v[i] != v[j - 1]) {
                 --j;
             }
             if (j == 0) {
-                tempVec.push_back(vec[i]);
+                tempVec.push_back(v[i]);
             }
         }
 
         for (int i = 0; i < tempVec.size(); ++i) {
-            vec[i] = tempVec[i];
+            v[i] = tempVec[i];
         }
-        vec.resize(tempVec.size());
+        v.resize(tempVec.size());
     }
 
     // 删除向量中的冗余元素
     template <typename T>
-    void removeVectorDupElements4(vector<T> &vec)
+    void removeVectorDupElements4(vector<T> &v)
     {
         vector<T> tempVec;
-        for (int i = 0; i < vec.size(); ++i) {
+        for (int i = 0; i < v.size(); ++i) {
             int index;
             // 根据索引遍历向量元素，用顺序查找当前元素第一次出现的索引，若该索引等于当前元素的索引，
             // 即表明当前元素还没有重复出现过，于是把它添加到临时向量中
-            if ((index = sequentialSearch(vec, 0, i, vec[i])) == i) {
-                tempVec.push_back(vec[i]);
+            if ((index = sequentialSearch(v, 0, i, v[i])) == i) {
+                tempVec.push_back(v[i]);
             }
         }
 
         for (int i = 0; i < tempVec.size(); ++i) {
-            vec[i] = tempVec[i];
+            v[i] = tempVec[i];
         }
-        vec.resize(tempVec.size());
+        v.resize(tempVec.size());
     }
 
     // 删除链表中的冗余元素

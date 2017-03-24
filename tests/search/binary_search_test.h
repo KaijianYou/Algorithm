@@ -29,14 +29,14 @@ namespace myalgorithm {
         printContainer(vec1.begin(), vec1.end());
 
         cout << "Enter the number you want to search: ";
-        int target;
-        cin >> target;
+        int key;
+        cin >> key;
 
         int index = -1;
-        if ((index = binarySearch(vec1, target)) != -1) {
-            cout << "Found " << target << " at index " << index << endl;
+        if ((index = binarySearch(vec1, key)) != -1) {
+            cout << "Found " << key << " at index " << index << endl;
         } else {
-            cout << "Target " << target << " can not found" << endl;
+            cout << "Target " << key << " can not found" << endl;
         }
 
         cout << endl;
@@ -50,12 +50,12 @@ namespace myalgorithm {
         printContainer(vec2.begin(), vec2.end());
 
         cout << "Enter the number you want to search: ";
-        cin >> target;
+        cin >> key;
 
-        if ((index = binarySearch(vec2, 0, vec2.size(), target)) != -1) {
-            cout << "Found " << target << " at index " << index << endl;
+        if ((index = binarySearch(vec2, 0, vec2.size(), key)) != -1) {
+            cout << "Found " << key << " at index " << index << endl;
         } else {
-            cout << "Target " << target << " can not found" << endl;
+            cout << "Target " << key << " can not found" << endl;
         }
 
         cout << endl;
@@ -75,12 +75,12 @@ namespace myalgorithm {
         printArray(arr, testSize);
 
         cout << "Enter the number you want to search: ";
-        cin >> target;
+        cin >> key;
 
-        if ((index = binarySearch(arr, 0, testSize, target)) != testSize) {
-            cout << "Found " << target << " at index " << index << endl;
+        if ((index = binarySearch(arr, 0, testSize, key)) != testSize) {
+            cout << "Found " << key << " at index " << index << endl;
         } else {
-            cout << "Target " << target << " can not found" << endl;
+            cout << "Target " << key << " can not found" << endl;
         }
     }
 }

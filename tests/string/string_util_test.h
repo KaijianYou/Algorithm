@@ -12,12 +12,12 @@ namespace myalgorithm {
     using std::endl;
     using std::string;
 
-    void testReplaceBlank()
+    void testReplaceSpaces()
     {
         const int MAX_STR_SIZE = 255;
         char testString[MAX_STR_SIZE] = "nothing is impossible to a willing heart";
 
-        replaceBlank(testString, MAX_STR_SIZE);
+        replaceSpaces(testString, MAX_STR_SIZE);
         cout << testString << endl;
     }
 
@@ -59,6 +59,13 @@ namespace myalgorithm {
         } else {
             cout << " \"" << str << "\" is not a palindrome" << endl;
         }
+    }
+
+    void testReverse()
+    {
+        char str[] = "abcdefg";
+        reverse(str);
+        cout << str << endl;
     }
 }
 

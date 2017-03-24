@@ -9,19 +9,19 @@ namespace myalgorithm {
     // 删除元素
     // 重新调整堆的元素顺序，使其维持堆的特性
     template <typename T, typename Comparator>
-    void adjustHeap(vector<T> &vec, int first, int last, Comparator comp)
+    void adjustHeap(vector<T> &v, int first, int last, Comparator comp)
     {
         int currIndex = first;
-        T target = vec[first];
+        T target = v[first];
 
         int childIndex = 2 * currIndex + 1;
         while (childIndex < last) {
-            if ((childIndex + 1 < last) && comp(vec[childIndex], vec[childIndex + 1])) {
+            if ((childIndex + 1 < last) && comp(v[childIndex], v[childIndex + 1])) {
                 childIndex = childIndex + 1;
             }
 
-            if (comp(target, vec[childIndex])) {
-                vec[currIndex] = vec[childIndex];
+            if (comp(target, v[childIndex])) {
+                v[currIndex] = v[childIndex];
                 currIndex = childIndex;
                 childIndex = 2 * currIndex + 1;
             } else {
@@ -29,40 +29,40 @@ namespace myalgorithm {
             }
         }
 
-        vec[currIndex] = target;
+        v[currIndex] = target;
     }
 
     // 删除堆的根节点
     template <typename T, typename Comparator>
-    void popHeap(vector<T> &vec, int last, Comparator comp)
+    void popHeap(vector<T> &v, int last, Comparator comp)
     {
-        T temp = vec[0];
-        vec[0] = vec[last - 1];
-        vec[last - 1] = temp;
+        T temp = v[0];
+        v[0] = v[last - 1];
+        v[last - 1] = temp;
 
-        adjustHeap(vec, 0, last - 1, comp);
+        adjustHeap(v, 0, last - 1, comp);
     }
 
     // 向量堆化
     template <typename T, typename Comparator>
-    void makeHeap(vector<T> &vec, Comparator comp)
+    void makeHeap(vector<T> &v, Comparator comp)
     {
-        int last = vec.size();
+        int last = v.size();
         int heapPos = (last - 2) / 2;
         while (heapPos >= 0) {
-            adjustHeap(vec, heapPos, last, comp);
+            adjustHeap(v, heapPos, last, comp);
             --heapPos;
         }
     }
 
     // 堆排序
     template <typename T, typename Comparator>
-    void heapSort(vector<T> &vec, Comparator comp)
+    void heapSort(vector<T> &v, Comparator comp)
     {
-        makeHeap(vec, comp);
+        makeHeap(v, comp);
 
-        for (int i = static_cast<int>(vec.size()); i > 1; --i) {
-            popHeap(vec, i, comp);
+        for (int i = static_cast<int>(v.size()); i > 1; --i) {
+            popHeap(v, i, comp);
         }
     }
 }

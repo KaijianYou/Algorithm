@@ -170,7 +170,7 @@ namespace myalgorithm {
     int Bit::bit(int index) const
     {
         if (index < 0 || index >= numBits) {
-            throw out_of_range("Bit.bit(): bit index is out of range");
+            throw out_of_range("Bit.bit(): bit index out of range");
         }
 
         if ((bitMask(index) & member[vectorIndex(index)]) != 0) {
@@ -183,7 +183,7 @@ namespace myalgorithm {
     void Bit::set(int index)
     {
         if (index < 0 || index >= numBits) {
-            throw out_of_range("Bit.bit(): bit index is out of range");
+            throw out_of_range("Bit.bit(): bit index out of range");
         }
 
         member[vectorIndex(index)] |= bitMask(index);
@@ -192,7 +192,7 @@ namespace myalgorithm {
     void Bit::clear(int index)
     {
         if (index < 0 || index >= numBits) {
-            throw out_of_range("Bit.bit(): bit index is out of range");
+            throw out_of_range("Bit.bit(): bit index out of range");
         }
 
         member[vectorIndex(index)] &= ~bitMask(index);

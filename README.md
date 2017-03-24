@@ -30,13 +30,16 @@ Build with LLVM 8.0.0 (clang-800.0.42.1) and CMake 3.6.
 algorithm 中的数据结构和算法的使用示例和测试用例。  
   
 ####附：常用排序算法的时间复杂度和空间复杂度
+lg: 以 2 为底的对数。
+d: 位数
+
 | 排序算法 | 最差时间复杂度 | 平均时间复杂度 | 空间复杂度 | 稳定度 |
 | :--: | :--: | :--: | :--: | :--: |
 | 冒泡 (bubble) 排序 | O(n^2) | O(n^2) | O(1) | 稳定 |
-| 快速 (quick) 排序 | O(n^2) | O(n\*log(n)) | O(n\*log(n)) ~ O(n) | 不稳定 |
+| 快速 (quick) 排序 | O(n^2) | O(n\*lg(n)) | O(n\*lg(n)) ~ O(n) | 不稳定 |
 | 选择 (selection) 排序 | O(n^2) | O(n^2) | O(1) | 不稳定 |
-| 归并 (merge) 排序 | O(n\*log(n)) | O(n\*log(n)) | O(n) | 稳定 |
+| 归并 (merge) 排序 | O(n\*lg(n)) | O(n\*lg(n)) | O(n) | 稳定 |
 | 插入 (insertion) 排序 | O(n^2) | O(n^2) | O(1) | 稳定 |
-| 堆 (heap) 排序 | O(n\*log(n)) | O(n\*log(n)) | O(1) | 不稳定 |
-| 基数 (radix) 排序 | O(dn) | d | O(n) | 稳定 |
+| 堆 (heap) 排序 | O(n\*lg(n)) | O(n\*lg(n)) | O(1) | 不稳定 |
+| 基数 (radix) 排序 | O(dn) | O(dn) | O(n) | 稳定 |
 | 希尔 (shell) 排序 | O(n^2) | O(n^1.3) | O(1) | 不稳定 |

@@ -34,20 +34,20 @@ namespace myalgorithm {
 
     void timeSort(SortType sortType, TestType testType, int size)
     {
-        vector<int> vec(size);
+        vector<int> v(size);
         RandomNumber rnd;
 
         if (testType == RANDOM) {
             for (int i = 0; i < size; ++i) {
-                vec[i] = rnd.randomInt(1, size + 1);
+                v[i] = rnd.randomInt(1, size + 1);
             }
         } else if (testType == ASCENDING) {
             for (int i = 0; i < size; ++i) {
-                vec[i] = i + 1;
+                v[i] = i + 1;
             }
         } else {
             for (int i = 0; i < size; ++i) {
-                vec[i] = size - i;
+                v[i] = size - i;
             }
         }
 
@@ -55,35 +55,35 @@ namespace myalgorithm {
         switch (sortType) {
         case SELECTION: {
             timer.start();
-            selectionSort(vec, less<int>());
+            selectionSort(v, less<int>());
             timer.stop();
             cout << "Seleciton sort:    " << timer.time() << " ms" << endl;
             break;
         }
         case INSERTION: {
             timer.start();
-            insertionSort(vec, less<int>());
+            insertionSort(v, less<int>());
             timer.stop();
             cout << "Insertion sort:    " << timer.time() << " ms" << endl;
             break;
         }
         case BUBBLE: {
             timer.start();
-            bubbleSort(vec, less<int>());
+            bubbleSort(v, less<int>());
             timer.stop();
             cout << "Bubble sort:       " << timer.time() << " ms" << endl;
             break;
         }
         case EXCHANGE: {
             timer.start();
-            exchangeSort(vec, less<int>());
+            exchangeSort(v, less<int>());
             timer.stop();
             cout << "Exchange sort:     " << timer.time() << " ms" << endl;
             break;
         }
         case SHELL: {
             timer.start();
-            shellSort(vec, less<int>());
+            shellSort(v, less<int>());
             timer.stop();
             cout << "Shell sort:        " << timer.time() << " ms" << endl;
             break;
@@ -94,35 +94,35 @@ namespace myalgorithm {
                 ++radix;
             }
             timer.start();
-            radixSort(vec, radix);
+            radixSort(v, radix);
             timer.stop();
             cout << "Radix sort:        " << timer.time() << " ms" << endl;
             break;
         }
         case PRIORQUEUE: {
             timer.start();
-            priorQueueSort(vec);
+            priorQueueSort(v);
             timer.stop();
             cout << "Prior queue sort:  " << timer.time() << " ms" << endl;
             break;
         }
         case HEAP: {
             timer.start();
-            heapSort(vec, less<int>());
+            heapSort(v, less<int>());
             timer.stop();
             cout << "Heap sort:         " << timer.time() << " ms" << endl;
             break;
         }
         case MERGE: {
             timer.start();
-            mergeSort(vec, 0, vec.size(), less<int>());
+            mergeSort(v, 0, v.size(), less<int>());
             timer.stop();
             cout << "Merge sort:        " << timer.time() << " ms" << endl;
             break;
         }
         case QUICK: {
             timer.start();
-            quickSort(vec, 0, vec.size(), less<int>());
+            quickSort(v, 0, v.size(), less<int>());
             timer.stop();
             cout << "Quick sort:        " << timer.time() << " ms" << endl;
             break;

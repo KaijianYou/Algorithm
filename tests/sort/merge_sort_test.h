@@ -15,23 +15,23 @@ namespace myalgorithm {
     void testMergeSort()
     {
         const int testSize = 10000;
-        vector<int> vec(static_cast<unsigned long>(testSize));
+        vector<int> v(static_cast<unsigned long>(testSize));
 
-        fillVectorWithRandomInt(vec, 0, testSize);
+        fillVectorWithRandomInt(v, 0, testSize);
         cout << "Before sorting: " << endl;
-        printContainer(vec.begin(), vec.end());
+        printContainer(v.begin(), v.end());
         cout << endl;
 
         Timer timer;
         timer.start();
 
-        mergeSort(vec, 0, static_cast<int>(vec.size()), std::less<int>());  // 升序排序
-        // mergeSort(vec, 0, static_cast<int>(vec.size()), std::greater<int>());  // 降序排序
+        mergeSort(v, 0, static_cast<int>(v.size()), std::less<int>());  // 升序排序
+        // mergeSort(v, 0, static_cast<int>(v.size()), std::greater<int>());  // 降序排序
 
         timer.stop();
 
         cout << "After sorting: " << endl;
-        printContainer(vec.begin(), vec.end());
+        printContainer(v.begin(), v.end());
         cout << endl;
 
         cout << "Time taken: " << timer.time() << " ms" << endl;

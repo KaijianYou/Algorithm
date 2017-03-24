@@ -14,34 +14,34 @@ namespace myalgorithm {
     // 期间一直将元素后移一个位置，然后把 target 插入到这个元素的前一个位置
     // Comparator 是关系型函数对象类型，用来比较元素大小
     template <typename T, typename Comparator>
-    void insertionSort(vector<T> &vec, Comparator comp)
+    void insertionSort(vector<T> &v, Comparator comp)
     {
-        for (int i = 1; i < vec.size(); ++i) {
+        for (int i = 1; i < v.size(); ++i) {
             int j = i;
-            T temp = vec[i];
-            while (j > 0 && temp < vec[j - 1]) {
-                vec[j] = vec[j - 1];
+            T temp = v[i];
+            while (j > 0 && temp < v[j - 1]) {
+                v[j] = v[j - 1];
                 --j;
             }
-            vec[j] = temp;
+            v[j] = temp;
         }
     }
 
     // 递归实现插入排序
     template <typename T, typename Comparator>
-    void insertionSort(vector<T> &vec, int first, int last, Comparator comp)
+    void insertionSort(vector<T> &v, int first, int last, Comparator comp)
     {
         if (first == last) {
             return;
         } else {
-            insertionSort(vec, first, last - 1, comp);
+            insertionSort(v, first, last - 1, comp);
             int j = last - 1;
-            T temp = vec[j];
-            while (j > first && comp(temp, vec[j - 1])) {
-                vec[j] = vec[j - 1];
+            T temp = v[j];
+            while (j > first && comp(temp, v[j - 1])) {
+                v[j] = v[j - 1];
                 --j;
             }
-            vec[j] = temp;
+            v[j] = temp;
         }
     }
 }

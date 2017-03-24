@@ -148,9 +148,9 @@ namespace myalgorithm {
         DLLNode<T> *first = header->next;
         DLLNode<T> *last = header->prev;
         while (first != last && last != first->prev) {
-            T exchangeTemp = first->value;
+            T temp = first->value;
             first->value = last->value;
-            last->value = exchangeTemp;
+            last->value = temp;
             first = first->next;
             last = last->prev;
         }

@@ -10,64 +10,64 @@ namespace myalgorithm {
     // 从堆中 [0, last) 删除索引为 i 的元素，并调整堆以继续维持堆的特性
     // Comparator 是关系函数对象类型，用来比较元素大小
     template <typename T, typename Comparator>
-    void eraseHeap(vector<T> &vec, int i, int last, Comparator comp)
+    void eraseHeap(vector<T> &v, int i, int last, Comparator comp)
     {
-        if (vec.empty()) {
+        if (v.empty()) {
             throw std::underflow_error("vector is empty");
         }
 
         if (i != last - 1) {
-            T temp = vec[i];
-            vec[i] = vec[last - 1];
-            vec[last - 1] = temp;
+            T temp = v[i];
+            v[i] = v[last - 1];
+            v[last - 1] = temp;
 
             int currIndex = i;
-            T target = vec[currIndex];
+            T target = v[currIndex];
             int childIndex = currIndex * 2 + 1;
             while (childIndex < last - 1) {
-                if ((childIndex + 1 < last - 1) && comp(vec[childIndex + 1], vec[childIndex])) {
+                if ((childIndex + 1 < last - 1) && comp(v[childIndex + 1], v[childIndex])) {
                     childIndex += 1;
                 }
 
-                if (comp(vec[childIndex], target)) {
-                    vec[currIndex] = vec[childIndex];
+                if (comp(v[childIndex], target)) {
+                    v[currIndex] = v[childIndex];
                     currIndex = childIndex;
                     childIndex = currIndex * 2 + 1;
                 } else {
                     break;
                 }
             }
-            vec[currIndex] = target;
+            v[currIndex] = target;
 
             currIndex = i;
-            target = vec[currIndex];
+            target = v[currIndex];
             int parentIndex = (currIndex - 1) / 2;
             while (parentIndex >= 0) {
                 parentIndex = (currIndex - 1) / 2;
-                if (comp(target, vec[parentIndex])) {
-                    vec[currIndex] = vec[parentIndex];
+                if (comp(target, v[parentIndex])) {
+                    v[currIndex] = v[parentIndex];
                     currIndex = parentIndex;
                     parentIndex = (currIndex - 1) / 2;
                 } else {
                     break;
                 }
             }
-            vec[currIndex] = target;
+            v[currIndex] = target;
         }
 
-        vec.pop_back();
+        v.pop_back();
     }
 
     // 判断 [0, last) 索引范围内的元素是否构成一个堆
     // Comparator 是关系函数对象类型，用来比较元素大小
     template <typename T, typename Comparator>
-    bool isHeap(const vector<T> &vec, int last, Comparator comp)
+    bool isHeap(const vector<T> &v, int last, Comparator comp)
     {
-        if (vec.empty()) {
+        if (v.empty()) {
             return false;
         }
 
-        if (vec.size() == 1) {
+        if (v.size() == 1) {
             return true;
         }
 
@@ -75,12 +75,12 @@ namespace myalgorithm {
         // 从最后一个父节点开始遍历到根节点（索引为 0），判断父节点是否大于或小于左右两个子节点
         for (int currIndex = lastParentIndex; currIndex >= 0; --currIndex) {
             int leftChildIndex = currIndex * 2 + 1;
-            if (!comp(vec[currIndex], vec[leftChildIndex])) {
+            if (!comp(v[currIndex], v[leftChildIndex])) {
                 return false;
             }
 
             int rightChildIndex = currIndex * 2 + 2;
-            if (rightChildIndex < last && !comp(vec[currIndex], vec[rightChildIndex])) {
+            if (rightChildIndex < last && !comp(v[currIndex], v[rightChildIndex])) {
                 return false;
             }
         }
@@ -93,15 +93,15 @@ namespace myalgorithm {
     // 使 [0, last) 是一个堆，函数对象 comp 用于比较元素
     // Comparator 是关系函数对象类型，用来比较元素大小
     template <typename T, typename Comparator>
-    void pushHeap(vector<T> &vec, int last, Comparator comp)
+    void pushHeap(vector<T> &v, int last, Comparator comp)
     {
         int currIndex = last - 1;
-        T temp = vec[last - 1];
+        T temp = v[last - 1];
 
         int parentIndex = (currIndex - 1) / 2;
         while (currIndex != 0) {
-            if (comp(temp, vec[parentIndex])) {
-                vec[currIndex] = vec[parentIndex];
+            if (comp(temp, v[parentIndex])) {
+                v[currIndex] = v[parentIndex];
                 currIndex = parentIndex;
                 parentIndex = (currIndex - 1) / 2;
             } else {
@@ -109,7 +109,7 @@ namespace myalgorithm {
             }
         }
 
-        vec[currIndex] = temp;
+        v[currIndex] = temp;
     }
 }
 

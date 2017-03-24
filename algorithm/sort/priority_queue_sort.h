@@ -10,19 +10,19 @@ namespace myalgorithm {
 
     // 使用优先级队列排序
     template <typename T>
-    void priorQueueSort(vector<T> &vec)
+    void priorQueueSort(vector<T> &v)
     {
         // 此处为升序排序，若要降序排序，下面一句可以改为：
         // priority_queue<T, vector<T>, greater<typename vector<T>::value_type>> pq;
         priority_queue<T> pq;
         // 时间复杂度：O(n * log(n))
-        for (int i = 0; i < vec.size(); ++i) {
-            pq.push(vec[i]);
+        for (int i = 0; i < v.size(); ++i) {
+            pq.push(v[i]);
         }
 
         // 时间复杂度：O(n * log(n))
-        for (int i = vec.size() - 1; i >= 0; --i) {
-            vec[i] = pq.top();
+        for (int i = v.size() - 1; i >= 0; --i) {
+            v[i] = pq.top();
             pq.pop();
         }
     }

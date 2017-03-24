@@ -14,20 +14,20 @@ namespace myalgorithm {
 
     void testSequentialSearch()
     {
-        vector<int> vec(20);
-        fillVectorWithRandomInt(vec, 0, 20);
+        vector<int> v(20);
+        fillVectorWithRandomInt(v, 0, 20);
 
         cout << "vector element:" << endl << "\t";
-        printContainer(vec.begin(), vec.end());
+        printContainer(v.begin(), v.end());
 
         cout << "Enter the number you want to search: ";
-        int target;
-        cin >> target;
+        int key;
+        cin >> key;
 
-        if (sequentialSearch(vec.begin(), vec.end(), target) != vec.end()) {
-            cout << "Found " << target << endl;
+        if (sequentialSearch(v.begin(), v.end(), key) != v.end()) {
+            cout << "Found " << key << endl;
         } else {
-            cout << "Target " << target << " can not found" << endl;
+            cout << "Target " << key << " can not found" << endl;
         }
 
         cout << endl;
@@ -40,13 +40,13 @@ namespace myalgorithm {
         printArray(arr, size);
 
         cout << "Enter the number you want to search: ";
-        cin >> target;
+        cin >> key;
 
         int index = 0;
-        if ((index = sequentialSearch(arr, 0, size, target)) != size) {
-            cout << "Found " << target << " at index " << index << endl;
+        if ((index = sequentialSearch(arr, 0, size, key)) != size) {
+            cout << "Found " << key << " at index " << index << endl;
         } else {
-            cout << "Target " << target << " can not found" << endl;
+            cout << "Target " << key << " can not found" << endl;
         }
     }
 }

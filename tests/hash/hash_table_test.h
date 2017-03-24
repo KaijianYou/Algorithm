@@ -36,12 +36,12 @@ namespace myalgorithm {
         cout << endl;
 
         cout << "Enter the number you want to delete: ";
-        int target;
-        cin >> target;
+        int key;
+        cin >> key;
 
-        auto iter = ht.find(target);
+        auto iter = ht.find(key);
         if (iter == ht.end()) {
-            cout << "Target " << target << " can not found" << endl;
+            cout << "Target " << key << " can not found" << endl;
         } else {
             ht.erase(iter);
         }

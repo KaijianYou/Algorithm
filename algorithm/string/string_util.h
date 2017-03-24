@@ -14,7 +14,7 @@ namespace myalgorithm {
 
     // 从后往前把字符数组中的空格替换成 "%20"
     /* length 为字符数组 str 的总容量 */
-    void replaceBlank(char str[], int length)
+    void replaceSpaces(char str[], int length)
     {
         if (str == nullptr && length < 0) {
             return;
@@ -55,7 +55,7 @@ namespace myalgorithm {
     }
 
     // 用分隔符分隔字符串
-    void strSplit(vector<string> &vec, const string &splitString, const string &seperator)
+    void strSplit(vector<string> &v, const string &splitString, const string &seperator)
     {
         string str(splitString);
         str = str + seperator;  // 在字符串前后加上分隔符，以避免特殊情况的判断
@@ -66,7 +66,7 @@ namespace myalgorithm {
             if (currPos != string::npos) {
                 if (currPos != prevPos + 1) {
                     ++prevPos;
-                    vec.push_back(str.substr(prevPos, currPos - prevPos));
+                    v.push_back(str.substr(prevPos, currPos - prevPos));
                 }
             } else {
                 break;
@@ -127,6 +127,24 @@ namespace myalgorithm {
             charStack.pop();
         }
         return true;
+    }
+
+    // 反转 C 风格字符串
+    void reverse(char *str)
+    {
+        char *end = str;
+        if (str) {
+            while (*end) {
+                ++end;
+            }
+            --end;  // 现在只想 '\0'，所以回退一个字符
+
+            while (str < end) {
+                char temp = *str;
+                *str++ = *end;
+                *end-- = temp;
+            }
+        }
     }
 }
 

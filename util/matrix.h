@@ -58,7 +58,7 @@ namespace myalgorithm {
     vector<T>& Matrix<T>::operator[](int index)
     {
         if (index < 0 || index >= _rows) {
-            throw std::out_of_range("Matrix.[]: index is out of range");
+            throw std::out_of_range("Matrix.[]: index out of range");
         }
 
         return matrix[index];
@@ -68,7 +68,7 @@ namespace myalgorithm {
     const vector<T>& Matrix<T>::operator[](int index) const
     {
         if (index < 0 || index >= _rows) {
-            throw std::out_of_range("Matrix.[]: index is out of range");
+            throw std::out_of_range("Matrix.[]: index out of range");
         }
 
         return matrix[index];

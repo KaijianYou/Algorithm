@@ -104,7 +104,7 @@ namespace myalgorithm {
     T& Vector<T>::operator[](int index)
     {
         if (index < 0 || index >= _size) {
-            throw out_of_range("Vector.[]: index is out of range");
+            throw out_of_range("Vector.[]: index out of range");
         }
 
         return array[index];
@@ -114,7 +114,7 @@ namespace myalgorithm {
     const T& Vector<T>::operator[](int index) const
     {
         if (index < 0 || index >= _size) {
-            throw out_of_range("Vector.[]: index is out of range");
+            throw out_of_range("Vector.[]: index out of range");
         }
     }
 
@@ -183,7 +183,7 @@ namespace myalgorithm {
     void Vector<T>::insert(int index, const T &item)
     {
         if (index < 0 || index > _size) {
-            throw out_of_range("index is out of range");
+            throw out_of_range("index out of range");
         }
 
         if (_size == _capacity) {
@@ -201,7 +201,7 @@ namespace myalgorithm {
     void Vector<T>::erase(int index)
     {
         if (index < 0 || index >= _size) {
-            throw out_of_range("index is out of range");
+            throw out_of_range("index out of range");
         }
 
         for (int i = index; i < _size - 1; ++i) {

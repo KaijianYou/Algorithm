@@ -9,48 +9,48 @@ namespace myalgorithm {
     // 索引范围 [first, mid) 和 [mid, last) 内的元素已经排好序，将它们归并到有序序列中
     // Comparator 是关系型函数对象类型，用来比较元素大小
     template <typename T, typename Comparator>
-    void merge(vector<T> &vec, int first, int mid, int last, Comparator comp)
+    void merge(vector<T> &v, int first, int mid, int last, Comparator comp)
     {
-        std::vector<T> tempVec;
-        int leftIndex = first;
-        int rightIndex = mid;
-        while (leftIndex < mid && rightIndex < last) {
-            if (comp(vec[leftIndex], vec[rightIndex])) {
-                tempVec.push_back(vec[leftIndex]);
-                ++leftIndex;
+        vector<T> tempVec;
+        int i = first;
+        int j = mid;
+        while (i < mid && j < last) {
+            if (comp(v[i], v[j])) {
+                tempVec.push_back(v[i]);
+                ++i;
             } else {
-                tempVec.push_back(vec[rightIndex]);
-                ++rightIndex;
+                tempVec.push_back(v[j]);
+                ++j;
             }
         }
 
-        while (leftIndex < mid) {
-            tempVec.push_back(vec[leftIndex]);
-            ++leftIndex;
+        while (i < mid) {
+            tempVec.push_back(v[i]);
+            ++i;
         }
 
-        while (rightIndex < last) {
-            tempVec.push_back(vec[rightIndex]);
-            ++rightIndex;
+        while (j < last) {
+            tempVec.push_back(v[j]);
+            ++j;
         }
 
-        leftIndex = first;
+        i = first;
         for (int i = 0; i < tempVec.size(); ++i) {
-            vec[leftIndex] = tempVec[i];
-            ++leftIndex;
+            v[i] = tempVec[i];
+            ++i;
         }
     }
 
     // 归并排序
     template <typename T, typename Comparator>
-    void mergeSort(vector<T> &vec, int first, int last, Comparator comp)
+    void mergeSort(vector<T> &v, int first, int last, Comparator comp)
     {
         if (first + 1 < last) {
-            int mid = first + ((last - first) >> 1);
+            int mid = first + (last - first) / 2;
 
-            mergeSort(vec, first, mid, comp);
-            mergeSort(vec, mid, last, comp);
-            merge(vec, first, mid, last, comp);
+            mergeSort(v, first, mid, comp);
+            mergeSort(v, mid, last, comp);
+            merge(v, first, mid, last, comp);
         }
     }
 }

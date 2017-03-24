@@ -11,22 +11,22 @@ namespace myalgorithm {
     // 并把它和当前循环的第一个位置的元素进行交换
     // Comparator 是关系型函数对象类型，用来比较元素大小
     template <typename T, typename Comparator>
-    void selectionSort(vector<T> &vec, Comparator comp)
+    void selectionSort(vector<T> &v, Comparator comp)
     {
-        int size = vec.size();
+        int size = v.size();
         for (int i = 0; i < size - 1; ++i) {
             int minIndex = i;
 
             for (int j = i + 1; j < size; ++j) {
-                if (comp(vec[j], vec[minIndex])) {
+                if (comp(v[j], v[minIndex])) {
                     minIndex = j;
                 }
             }
 
             if (minIndex != i) {
-                T exchangeTemp = vec[i];
-                vec[i] = vec[minIndex];
-                vec[minIndex] = exchangeTemp;
+                T temp = v[i];
+                v[i] = v[minIndex];
+                v[minIndex] = temp;
             }
         }
     }
@@ -35,33 +35,33 @@ namespace myalgorithm {
     // 每次循环结束，就将循环起点的元素交换为最小的元素，循环终点的元素交换为最大的元素，
     // 然后循环起点索引加一，循环终点索引减一，重复此过程，直到循环起点索引不小于循环终点索引
     template <typename T, typename Comparator>
-    void deSelectionSort(vector<T> &vec, Comparator comp)
+    void deSelectionSort(vector<T> &v, Comparator comp)
     {
         int first = 0;
-        int last = vec.size() - 1;
+        int last = v.size() - 1;
         while (first < last) {
             int minIndex = first;
             int maxIndex = last;
             for (int i = first + 1; i < last; ++i) {
-                if (comp(vec[i], vec[minIndex])) {
+                if (comp(v[i], v[minIndex])) {
                     minIndex = i;
                 }
 
-                if (comp(vec[maxIndex], vec[i])) {
+                if (comp(v[maxIndex], v[i])) {
                     maxIndex = i;
                 }
             }
 
             if (minIndex != first) {
-                T exchangeTemp = vec[first];
-                vec[first] = vec[minIndex];
-                vec[minIndex] = exchangeTemp;
+                T temp = v[first];
+                v[first] = v[minIndex];
+                v[minIndex] = temp;
             }
 
             if (maxIndex != last) {
-                T exchangeTemp = vec[last];
-                vec[last] = vec[maxIndex];
-                vec[maxIndex] = exchangeTemp;
+                T temp = v[last];
+                v[last] = v[maxIndex];
+                v[maxIndex] = temp;
             }
 
             ++first;
