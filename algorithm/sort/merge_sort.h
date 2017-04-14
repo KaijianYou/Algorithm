@@ -37,7 +37,6 @@ namespace myalgorithm {
         i = first;
         for (int i = 0; i < tempVec.size(); ++i) {
             v[i] = tempVec[i];
-            ++i;
         }
     }
 

@@ -6,52 +6,41 @@
 namespace myalgorithm {
     using std::vector;
 
-    // 删除元素
-    // 重新调整堆的元素顺序，使其维持堆的特性
     template <typename T, typename Comparator>
-    void adjustHeap(vector<T> &v, int first, int last, Comparator comp)
+    void upHeap(vector<T> &v, int i, Comparator comp)
     {
-        int currIndex = first;
-        T target = v[first];
-
-        int childIndex = 2 * currIndex + 1;
-        while (childIndex < last) {
-            if ((childIndex + 1 < last) && comp(v[childIndex], v[childIndex + 1])) {
-                childIndex = childIndex + 1;
-            }
-
-            if (comp(target, v[childIndex])) {
-                v[currIndex] = v[childIndex];
-                currIndex = childIndex;
-                childIndex = 2 * currIndex + 1;
+        while (i != 0) {
+            int parent = (i - 1) / 2;
+            if (comp(v[parent], v[i])) {
+                T temp = v[i];
+                v[i] = v[parent];
+                v[parent] = temp;
+                i = parent;
             } else {
                 break;
             }
         }
-
-        v[currIndex] = target;
     }
 
-    // 删除堆的根节点
     template <typename T, typename Comparator>
-    void popHeap(vector<T> &v, int last, Comparator comp)
+    void downHeap(vector<T> &v, int i, int size, Comparator comp)
     {
-        T temp = v[0];
-        v[0] = v[last - 1];
-        v[last - 1] = temp;
-
-        adjustHeap(v, 0, last - 1, comp);
-    }
-
-    // 向量堆化
-    template <typename T, typename Comparator>
-    void makeHeap(vector<T> &v, Comparator comp)
-    {
-        int last = v.size();
-        int heapPos = (last - 2) / 2;
-        while (heapPos >= 0) {
-            adjustHeap(v, heapPos, last, comp);
-            --heapPos;
+        int left = 2 * i + 1;
+        while (left < size) {
+            int more = left;
+            int right = i * 2 + 2;
+            if (right < size && comp(v[more], v[right])) {
+                more = right;
+            }
+            if (comp(v[i], v[more])) {
+                T temp = v[i];
+                v[i] = v[more];
+                v[more] = temp;
+                i = more;
+                left = i * 2 + 1;
+            } else {
+                break;
+            }
         }
     }
 
@@ -59,10 +48,15 @@ namespace myalgorithm {
     template <typename T, typename Comparator>
     void heapSort(vector<T> &v, Comparator comp)
     {
-        makeHeap(v, comp);
+        for (int i = 0; i < v.size(); i++) {
+            upHeap(v, i, comp);
+        }
 
-        for (int i = static_cast<int>(v.size()); i > 1; --i) {
-            popHeap(v, i, comp);
+        for (int i = v.size() - 1; i > 0; i--) {
+            T temp = v[0];
+            v[0] = v[i];
+            v[i] = temp;
+            downHeap(v, 0, i, comp);
         }
     }
 }
