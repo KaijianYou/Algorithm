@@ -5,5 +5,5 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_definitions(-Wall -O2)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp algorithm/encrypt/base64.h)
 add_executable(Algorithm ${SOURCE_FILES})
